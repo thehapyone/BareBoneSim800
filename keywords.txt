@@ -1,0 +1,45 @@
+#######################################
+# Syntax Coloring Map For BareBoneSim800
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+BareBoneSim800	KEYWORD1
+
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+
+# Methods for Sleep (KEYWORD2)
+#######################################
+setFullMode KEYWORD2
+enterSleepMode KEYWORD2
+disableSleep KEYWORD2
+
+
+# Methods for SMS (KEYWORD2)
+#######################################
+sendSMS	KEYWORD2
+readSMS	KEYWORD2
+
+
+# Methods for INTERNET (KEYWORD2)
+#######################################
+gprsConnect	KEYWORD2
+gprsDisconnect KEYWORD2
+sendHTTPData KEYWORD2
+closeHTTP	KEYWORD2
+
+
+# Methods for Module (KEYWORD2)
+#######################################
+begin KEYWORD2 
+isAttached KEYWORD2
+getTime	KEYWORD2
+getLocation KEYWORD2
+getBattPercent KEYWORD2
+flushSerial	KEYWORD2
