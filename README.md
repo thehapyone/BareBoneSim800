@@ -17,8 +17,8 @@ If you like **BareBoneSim800** - give it a star, or fork it and contribute!
 please follow the example sketch in example folder.
 
 ##To download and Install.
-Go to [Releases](https://github.com/thehapyone/BareBoneSim800/releases) click the " Source Code (zip) " button, then rename the uncompressed folder to **BareBoneSim800**. 
-  Check that the *BareBoneSim800* folder contains BareBoneSim800.cpp and BareBoneSim800.h
+click the "Clone or Download" button to download the zip file and extract it.
+  Check that the uncompressed *BareBoneSim800* folder contains BareBoneSim800.cpp and BareBoneSim800.h
 
 Go to arduino IDE Sketch >> Import Library >> add library... Select the folder BareBoneSim800
 
