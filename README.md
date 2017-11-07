@@ -16,7 +16,7 @@ If you like **BareBoneSim800** - give it a star, or fork it and contribute!
 ### Getting Started
 please follow the example sketch in example folder.
 
-##To download and Install.
+## To download and Install
 click the "Clone or Download" button to download the zip file and extract it.
   Check that the uncompressed *BareBoneSim800* folder contains BareBoneSim800.cpp and BareBoneSim800.h
 
