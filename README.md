@@ -3,6 +3,7 @@ The Purpose of This library is to use the SIM800 module providing core functiona
 
 If you like **BareBoneSim800** - give it a star, or fork it and contribute!
 
+This Library uses the AltSoftSerial Library instead of the SoftSerial Library to allow for compatibility with other PinChange Interrupts Library and SPI Libraries
 
 ## Applications and Features
 + Send SMS and read SMS
@@ -17,7 +18,7 @@ If you like **BareBoneSim800** - give it a star, or fork it and contribute!
 please follow the example sketch in example folder.
 
 ##To download and Install.
-Go to [Releases](https://github.com/thehapyone/BareBoneSim800/releases) click the " Source Code (zip) " button, then rename the uncompressed folder to **BareBoneSim800**. 
+Go to [Github Site](https://github.com/thehapyone/BareBoneSim800/) and click the Download button, then rename the uncompressed folder to **BareBoneSim800**. 
   Check that the *BareBoneSim800* folder contains BareBoneSim800.cpp and BareBoneSim800.h
 
 Go to arduino IDE Sketch >> Import Library >> add library... Select the folder BareBoneSim800
@@ -35,8 +36,14 @@ You may need to create the libraries subfolder if its your first library. Restar
         |  ARDUINO UNO >>>   SIM800L  |
          -----------------------------
              GND      >>>   GND
-         RX  10       >>>   TX    
-         TX  11       >>>   RX
+         RX  8       >>>   TX    
+         TX  9       >>>   RX
+		 
+	  |  ARDUINO MEGA >>>   SIM800L  |
+        -----------------------------
+            GND      >>>   GND
+        RX  48       >>>   TX    
+        TX  46       >>>   RX
        
                   
     POWER SOURCE (3.8V - 4.2V) >>> VCC
@@ -69,6 +76,7 @@ Thank you for downloading and enjoying the BareBoneSim800 library.
 I hope you find it useful. Heck, I wrote it for you- yeah, that's right- you.
 
 This Library was inspired from the SIM800 Library from Cristainsteib(https://cristiansteib.github.io/Sim800l) and the Powerful TingGSMLibrary by Volodymyr Shymanskyy.
+Special Thanks to Paul Stoffregen that created the AltSoftSerial (http://www.pjrc.com/teensy/td_libs_AltSoftSerial.html) Library, it's library was the backbone of this Library communication
 
 Contributing to this software is warmly welcomed
 

@@ -10,7 +10,6 @@
  *    and possibily other SIMxxx modules(not tested with others)
  *  
  *    This library use SoftwareSerial, you can define the RX and TX pin
- *    in the header "BareBoneSim800.h", by default the pin is RX=10 TX=11..
  *    be sure that GND is attached to arduino too. 
  *    The RESET_PIN is not used for this Library, you can leave it un-connected
  *    
@@ -22,9 +21,14 @@
  *       |  ARDUINO UNO >>>   SIM800L  |
  *        -----------------------------
  *            GND      >>>   GND
- *        RX  10       >>>   TX    
- *        TX  11       >>>   RX
+ *        RX  8       >>>   TX    
+ *        TX  9       >>>   RX
  *      
+  *       |  ARDUINO MEGA >>>   SIM800L  |
+ *        -----------------------------
+ *            GND      >>>   GND
+ *        RX  48       >>>   TX    
+ *        TX  46       >>>   RX
  *                 
  *   POWER SOURCE 4.2V (MAX) >>> VCC
  *
@@ -33,6 +37,10 @@
  *        Email: charlesayibiowu@hotmail.com
  *        Version: v0.1
  *        
+ *		?????????????????????????????????????????????????
+ *		Updates:
+ *		SoftwareSerial upgraded to AltSoftSerial to support compartibility with other PinChange Interrupt Library
+ *		and SPI based Library. 
  *
 */
 
@@ -40,11 +48,11 @@
  #ifndef BareBoneSim800_h
  #define BareBoneSim800_h
  
- #include <SoftwareSerial.h>
+ #include "AltSoftSerial.h"
  #include "Arduino.h"
  
- #define RX_PIN 10
- #define TX_PIN 11
+ #define RX_PIN 8		//not needed since the AltSoftSerial has already define it inside
+ #define TX_PIN 9
  #define RESET_PIN 2 // pin to reset not currently used is this version
  
 #define TIMEOUT 99

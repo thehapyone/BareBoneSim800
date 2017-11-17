@@ -9,19 +9,20 @@
  *    Designed to work with the GSM Sim800l module,
  *    and possibily other SIMxxx modules(not tested with others)
  *  
- *    This library use SoftwareSerial, you can define the RX and TX pin
- *    in the header "BareBoneSim800.h", by default the pin is RX=10 TX=11..
+ *    This library use AltSoftSerial, and the pins has already be defined
  *    be sure that GND is attached to arduino too. 
  *    The RESET_PIN is not used for this Library, you can leave it un-connected
  *    
+ *    To Enable Debugging - Go to <BareBoneSim800.h file and change the
+ *    #define DEBUG 0 to #define DEBUG 1
  *         
  *    PINOUT: 
  *        _____________________________
  *       |  ARDUINO UNO >>>   SIM800L  |
  *        -----------------------------
  *            GND      >>>   GND
- *        RX  10       >>>   TX    
- *        TX  11       >>>   RX
+ *        RX  8       >>>   TX    
+ *        TX  9       >>>   RX
  *      
  *                 
  *   POWER SOURCE 4.2V (MAX) >>> VCC
@@ -35,7 +36,6 @@
 */
 
 #include <BareBoneSim800.h>
-#include <SoftwareSerial.h> //is necesary for the library!! 
 
 BareBoneSim800 sim800(); // 
 //BareBoneSim800 sim800("your APN");  //needed for gprs funtionality 
