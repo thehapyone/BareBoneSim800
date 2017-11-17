@@ -1,5 +1,5 @@
 ## A BareBone SIM800l Library Module for Arduino
-The Purpose of This library is to use the SIM800 module providing core functionalities while still maintaining strong performance and being memory eddicient.
+The Purpose of This library is to use the SIM800 module providing core functionalities while still maintaining strong performance and being memory efficient.
 
 If you like **BareBoneSim800** - give it a star, or fork it and contribute!
 
