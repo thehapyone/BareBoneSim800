@@ -44,7 +44,7 @@ void setup() {
   sim800.begin();
   while(!Serial);
 
-  Serial.println("Testing GSM module For Sleep & PowerDown Mode");
+  Serial.println("Testing GSM module For Battery Reading");
   delay(8000); // this delay is necessary, it helps the device to be ready and connect to a network
 
   Serial.println("Should be ready by now");
