@@ -56,18 +56,21 @@ void setup() {
   else
     Serial.println("Not Attached");
 
-   //Sending SMS
-   const char* number = "+2347038945220";
-   char* message = "Hello, This is a text message";
-   
-   delay(1000);
-   
-   bool messageSent = sim800.sendSMS(number, message);
-   if(messageSent)
-      Serial.println("Message Sent");
-   else
-      Serial.println("Not Sent, Something happened");
-    
+   // Enable Sleep mode
+  bool sleepActivated = sim800.enterSleepMode();
+  if(sleepActivated)
+    Serial.println("Sleep Mode/Low Power Activated");
+  else
+    Serial.println("Sleep not Activated");
+
+    delay(5000); // let it sleep for about 5secs
+  // disable sleep mode
+  
+  bool disableSleep = sim800.disableSleep();
+    if(disableSleep)
+    Serial.println("Sleep Mode/Low Power Disabled");
+  else
+    Serial.println("Sleep not Disbaled");
     
 
 }
