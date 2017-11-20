@@ -57,12 +57,18 @@ void setup() {
   else
     Serial.println("Not Attached");
 
-   //Receiving and Viewing SMS
- String message = "";
- int messageIndex = 1;
- message = sim800.readSMS(messageIndex);
- Serial.print("Received message is: ");
- Serial.println(message);
+   //Testing sending SMS aspect
+
+   const char* number = "+2347038945220";
+   char* message = "Hello, This is a text message";
+   
+   delay(1000);
+   
+   bool messageSent = sim800.sendSMS(number, message);
+   if(messageSent)
+      Serial.println("Message Sent");
+   else
+      Serial.println("Not Sent, Something happened");
      
 
 }
