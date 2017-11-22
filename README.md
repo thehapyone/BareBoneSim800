@@ -17,9 +17,15 @@ This Library uses the AltSoftSerial Library instead of the SoftSerial Library to
 ### Getting Started
 please follow the example sketch in example folder.
 
+<<<<<<< HEAD
 ##To download and Install.
 Go to [Github Site](https://github.com/thehapyone/BareBoneSim800/) and click the Download button, then rename the uncompressed folder to **BareBoneSim800**. 
   Check that the *BareBoneSim800* folder contains BareBoneSim800.cpp and BareBoneSim800.h
+=======
+## To download and Install
+click the "Clone or Download" button to download the zip file and extract it.
+  Check that the uncompressed *BareBoneSim800* folder contains BareBoneSim800.cpp and BareBoneSim800.h
+>>>>>>> 37c2cce3624f249bf2dc77bccb5372b63572dd88
 
 Go to arduino IDE Sketch >> Import Library >> add library... Select the folder BareBoneSim800
 
