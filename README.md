@@ -17,13 +17,13 @@ This Library uses the AltSoftSerial Library instead of the SoftSerial Library to
 ## Getting Started
 Please kindly follow the examples in the example folder.
 
-##To download and Install.
+## To download and Install
 Go to [Release](https://github.com/thehapyone/BareBoneSim800/releases) and click the " Source Code (zip) " button to download the latest release, then rename the uncompressed folder to **BareBoneSim800**. 
   Check that the *BareBoneSim800* folder contains BareBoneSim800.cpp and BareBoneSim800.h and copy the folder into the Arduino Library directory in your documents folder.
   i.e Place the BareBoneSim800 library folder your arduinosketchfolder/libraries/ folder. 
   You may need to create the libraries subfolder if its your first library. Restart the IDE and you are good to go.
 
-####OR 
+#### OR 
   
 Go to arduino IDE Sketch >> Import Library >> add library... Select the folder BareBoneSim800
 
@@ -46,6 +46,7 @@ Go to arduino IDE Sketch >> Import Library >> add library... Select the folder B
        
                   
     POWER SOURCE (3.8V - 4.2V) >>> VCC
+You can regulate the voltage to the desired voltage by using a diode to step down th Arduino 5V to 4.2v or just use a Lipo battery
 
 ## Methods and functions
 
@@ -69,7 +70,6 @@ sendHTTPData(data)|String|Make an HTTP Request
 closeHTTP()|None|Close connection
 ____________________________________________________________________________________
 
-You can regulate the voltage to the desired voltage by using a diode to step down th Arduino 5V to 4.2v or just use a Lipo battery
 
 ## Thanks!
 Thank you for downloading and enjoying the BareBoneSim800 library.
