@@ -6,7 +6,7 @@ If you like **BareBoneSim800** - give it a star, or fork it and contribute!
 This Library uses the AltSoftSerial Library instead of the SoftSerial Library to allow for compatibility with other PinChange Interrupts Library and SPI Libraries
 
 ## Applications and Features
-+ Send SMS and read SMS
++ Send SMS, Read SMS and Delete SMS
 + AT Command Test
 + Send and Receive HTTP data
 + TCP Connection
@@ -14,25 +14,18 @@ This Library uses the AltSoftSerial Library instead of the SoftSerial Library to
 + Low power saving mode
 + Location and Time Update
 
-### Getting Started
-please follow the example sketch in example folder.
+## Getting Started
+Please kindly follow the examples in the example folder.
 
-<<<<<<< HEAD
 ##To download and Install.
-Go to [Github Site](https://github.com/thehapyone/BareBoneSim800/) and click the Download button, then rename the uncompressed folder to **BareBoneSim800**. 
-  Check that the *BareBoneSim800* folder contains BareBoneSim800.cpp and BareBoneSim800.h
-=======
-## To download and Install
-click the "Clone or Download" button to download the zip file and extract it.
-  Check that the uncompressed *BareBoneSim800* folder contains BareBoneSim800.cpp and BareBoneSim800.h
->>>>>>> 37c2cce3624f249bf2dc77bccb5372b63572dd88
+Go to [Release](https://github.com/thehapyone/BareBoneSim800/releases) and click the " Source Code (zip) " button to download the latest release, then rename the uncompressed folder to **BareBoneSim800**. 
+  Check that the *BareBoneSim800* folder contains BareBoneSim800.cpp and BareBoneSim800.h and copy the folder into the Arduino Library directory in your documents folder.
+  i.e Place the BareBoneSim800 library folder your arduinosketchfolder/libraries/ folder. 
+  You may need to create the libraries subfolder if its your first library. Restart the IDE and you are good to go.
 
+####OR 
+  
 Go to arduino IDE Sketch >> Import Library >> add library... Select the folder BareBoneSim800
-
-OR 
-
-Place the BareBoneSim800 library folder your arduinosketchfolder/libraries/ folder. 
-You may need to create the libraries subfolder if its your first library. Restart the IDE and you are good to go.
 
 
 ## connections & pinouts
@@ -66,6 +59,7 @@ enterSleepMode()|true or false|Puts the GSM module into a power saving and sleep
 disableSleep()|true or false|Disable sleep for the device and wakes it up, gives error if device not in sleep before.
 sendSms(number,text)|true or false|Sends  sms.
 readSms(index)|String|index is the position of the sms in the prefered memory storage
+dellAllSMS()|true or false|Deletes all message in the SIM800 module.
 getTime()|String|Gets time of the network in GMT+0
 getLocation()|String|Gets approximate location of device
 getBattPercent()|Byte|Battery percentage 

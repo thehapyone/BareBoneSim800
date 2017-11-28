@@ -217,7 +217,22 @@ void BareBoneSim800::_disableBearerProfile(){
 	 return true;
  }
  
- 
+ void BareBoneSim800::flushSerial(uint16_t timeout){
+	 // flush serial out
+	  unsigned long t = millis();
+	  // loop through until their is a timeout or a response from the device
+	  String output;
+	  while(millis()<t+timeout)
+	  {
+		  if(gsmSerial.available())
+		  {
+			  output = gsmSerial.readString();
+			  output= "";
+			  break;
+		  }
+	  }
+  }
+
  
  bool BareBoneSim800::setFullMode(){
 	 //This set the device to full funcionality - AT+CFUN
@@ -327,6 +342,19 @@ String BareBoneSim800::readSMS(uint8_t index){
 	}
 	else
 		return "";
+}
+
+bool BareBoneSim800::dellAllSMS(){
+	/* This deletes all sms in memory  
+	
+	*/
+	byte result;
+	gsmSerial.print(F("AT+CMGDA=\"DEL ALL\"\r\n")); // set sms to text mode
+	result = _checkResponse(25000); // max time to wait is 25secs
+	if(result == OK)
+		return true;
+	else
+		return false;
 }
 
 String BareBoneSim800::getTime(){

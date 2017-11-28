@@ -120,6 +120,7 @@
 	 
 	 bool sendSMS(const char* number, char* text);
 	 String readSMS(uint8_t index); // reads an sms at a particular index
+	 bool dellAllSMS(); // deletes all sms 
 	 
 	 String getTime(); // return time of the network
 	 String getLocation(); //return location of device

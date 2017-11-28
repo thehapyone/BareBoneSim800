@@ -25,6 +25,7 @@ disableSleep	KEYWORD2
 #######################################
 sendSMS	KEYWORD2
 readSMS	KEYWORD2
+dellAllSMS	KEYWORD2
 
 
 # Methods for INTERNET (KEYWORD2)
