@@ -37,7 +37,7 @@
 
 #include <BareBoneSim800.h>
 
-BareBoneSim800 sim800("your APN network", "your USERNAME", "your PASSWORD");  //to declare the library with an APN
+BareBoneSim800 sim800("your APN network", "your USERNAME", "your PASSWORD");  //to declare the library with an APN, UserName and Password
 //BareBoneSim800 sim800("gloworld");
 
 // Connecting to the Internet and Acting as an HTTP Web Client
