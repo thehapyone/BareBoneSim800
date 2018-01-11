@@ -30,7 +30,7 @@
  *        Created on: Oct 24, 2017
  *        Author: Ayo Ayibiowu
  *        Email: charlesayibiowu@hotmail.com
- *        Version: v0.1
+ *        Version: v1.1
  *        
  *
 */
@@ -47,8 +47,16 @@
  
  BareBoneSim800::BareBoneSim800(const char* networkAPN){
 	 _networkAPN = networkAPN;
+	 _userName = "";
+	 _passWord = "";
  }
  
+ BareBoneSim800::BareBoneSim800(const char* networkAPN, const char* userName, const char* passWord){
+	 _networkAPN = networkAPN;
+	 _userName = userName;
+	 _passWord = passWord;
+ }
+
 AltSoftSerial gsmSerial;
  
  
@@ -172,7 +180,17 @@ AltSoftSerial gsmSerial;
 	gsmSerial.print(_networkAPN);
 	gsmSerial.print(F("\"\r\n")); // set apn 
 	buffer=_readData();
-	delay(100);
+	delay(20);
+	gsmSerial.print(F("AT+SAPBR=3,1,\"USER\",\""));  
+	gsmSerial.print(_userName);
+	gsmSerial.print(F("\"\r\n")); // set username
+	buffer=_readData();
+	delay(20);
+	gsmSerial.print(F("AT+SAPBR=3,1,\"PWD\",\""));  
+	gsmSerial.print(_passWord);
+	gsmSerial.print(F("\"\r\n")); // set password  
+	buffer=_readData();
+	delay(20);
 	gsmSerial.print(F("AT+SAPBR=1,1\r\n")); // activate bearer context
 	buffer=_readData();
 	delay(100);
@@ -444,12 +462,14 @@ bool BareBoneSim800::gprsConnect(){
 	if (result != OK)
 		return false;
 	delay(10);
-	//gsmSerial.print(F("AT+CIPQSEND=0\r\n"));
-	//buffer = _readData();
-	// Here user and password is assume to be ""
 	gsmSerial.print(F("AT+CSTT=\""));  
 	gsmSerial.print(_networkAPN);
-	gsmSerial.print(F("\"\r\n")); // set apn 
+	gsmSerial.print(F("\",\""));
+	gsmSerial.print(_userName);
+	gsmSerial.print(F("\",\""));
+	gsmSerial.print(_passWord);
+	gsmSerial.print(F("\"\r\n")); //  
+
 	result = _checkResponse(60000);
 	if(result != OK)
 		return false;

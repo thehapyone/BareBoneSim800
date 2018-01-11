@@ -35,7 +35,7 @@
  *        Created on: Oct 24, 2017
  *        Author: Ayo Ayibiowu
  *        Email: charlesayibiowu@hotmail.com
- *        Version: v0.1
+ *        Version: v1.1
  *        
  *		?????????????????????????????????????????????????
  *		Updates:
@@ -78,6 +78,8 @@
 	 private:
 	 // some variables to be used
 	   const char* _networkAPN;
+		const char* _userName;
+		const char* _passWord;
 	   static const uint8_t _responseInfoSize = 12; 
 	   const char* _responseInfo[_responseInfoSize] =
 				  {"ERROR",
@@ -108,6 +110,8 @@
 	 
 	 BareBoneSim800();
 	 BareBoneSim800(const char* networkAPN);
+	 BareBoneSim800(const char* networkAPN, const char* userName, const char* passWord);
+
 	 	 // some public function 
 	 void begin();
 	 bool isAttached();
