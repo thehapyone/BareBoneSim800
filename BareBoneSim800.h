@@ -35,7 +35,7 @@
  *        Created on: Oct 24, 2017
  *        Author: Ayo Ayibiowu
  *        Email: charlesayibiowu@hotmail.com
- *        Version: v1.1
+ *        Version: v1.2
  *        
  *		?????????????????????????????????????????????????
  *		Updates:
@@ -102,6 +102,7 @@
 	   String _readData();
 	   //String _readData(uint16_t timeout);
 	   void _setUp();
+	   int _getLatestMessageIndex();
 	   void _enableBearerProfile();
 	   void _disableBearerProfile();
 	   
@@ -111,6 +112,9 @@
 	 BareBoneSim800();
 	 BareBoneSim800(const char* networkAPN);
 	 BareBoneSim800(const char* networkAPN, const char* userName, const char* passWord);
+	 
+	 volatile int previousMessageIndex = 0; //stores the last read message index
+	 volatile int currentMessageIndex = 0; //stores the latest message index
 
 	 	 // some public function 
 	 void begin();
@@ -125,6 +129,7 @@
 	 bool sendSMS(const char* number, char* text);
 	 String readSMS(uint8_t index); // reads an sms at a particular index
 	 String readSIMNumber(); //reads the sim registered number
+	 bool checkNewSMS(); //checks for new sms
 	 bool dellAllSMS(); // deletes all sms 
 	 
 	 String getTime(); // return time of the network

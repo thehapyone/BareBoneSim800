@@ -162,11 +162,42 @@ AltSoftSerial gsmSerial;
  }
  */
  
+ int BareBoneSim800::_getLatestMessageIndex()
+{
+	// this function checks the message for the latest message index.
+	// returns 0 if nothing is found, possible for an empty simcard
+	String buffer = "";
+	String bufferIndex = "";
+	int messageIndex = 0;
+	int tempIndex = 0;
+	gsmSerial.print(F("AT+CMGL=\"ALL\",0"));
+	gsmSerial.print("\r");
+	buffer = _readData(); //reads the result	
+	tempIndex = buffer.lastIndexOf("+CMGL:");
+	if(tempIndex != -1)
+	{
+		// means message is found
+		tempIndex = tempIndex + 6;
+		bufferIndex = buffer.substring(tempIndex);
+		bufferIndex = bufferIndex.substring(1,(bufferIndex.indexOf(",")));
+		messageIndex = bufferIndex.toInt();
+		return messageIndex;
+	}
+	else
+		return messageIndex;	
+	
+}
+
  void BareBoneSim800::_setUp(){
 	 // here we setup some important parameters
 	 gsmSerial.print(F("AT+CSCS=\"GSM\"\r\n"));
 	 byte someBuffer = _checkResponse(10000); // just to clear the buffer
 	 delay(100);
+	 gsmSerial.print(F("AT+CMGF=1\r"));
+	 byte result = _checkResponse(10000);
+	 // here we save the latest message index here
+	 currentMessageIndex = _getLatestMessageIndex();	 
+	 previousMessageIndex = currentMessageIndex;
 	 
  }
  
@@ -377,6 +408,19 @@ String BareBoneSim800::readSIMNumber(){
 		return "";
 }
 
+bool BareBoneSim800::checkNewSMS(){
+	// This function checks if a new sms is available
+	int messageIndex = 0;
+	currentMessageIndex = _getLatestMessageIndex();
+	if (currentMessageIndex > previousMessageIndex)
+	{
+		previousMessageIndex = currentMessageIndex;
+		return true;
+	}
+	else
+		return false;
+}
+
 bool BareBoneSim800::dellAllSMS(){
 	/* This deletes all sms in memory  
 	
@@ -385,7 +429,11 @@ bool BareBoneSim800::dellAllSMS(){
 	gsmSerial.print(F("AT+CMGDA=\"DEL ALL\"\r\n")); // set sms to text mode
 	result = _checkResponse(25000); // max time to wait is 25secs
 	if(result == OK)
+	{
+		previousMessageIndex = 0;
+		currentMessageIndex = 0;
 		return true;
+	}
 	else
 		return false;
 }
@@ -570,11 +618,11 @@ String BareBoneSim800::sendHTTPData(char *data)
 		return "";
 	delay(5);
 	gsmSerial.print(F("AT+HTTPACTION=0\r\n"));
-	result= _checkResponse(100000); // updated to about 100secs for very slow networks
-	if(result != OK)
-		return "";
+	result= _checkResponse(100000);
+	//if(result != OK)
+	//	return "";
 	delay(10);
-	result = _checkResponse(50000);
+	result = _checkResponse(20000);
 	gsmSerial.print(F("AT+HTTPREAD\r\n"));
 	String buffer = _readData();
 	delay(50);

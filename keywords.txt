@@ -21,10 +21,17 @@ enterSleepMode	KEYWORD2
 disableSleep	KEYWORD2
 
 
+# Public Variables (KEYWORD2)
+#######################################
+previousMessageIndex	KEYWORD2
+currentMessageIndex	KEYWORD2
+
+
 # Methods for SMS (KEYWORD2)
 #######################################
 sendSMS	KEYWORD2
 readSMS	KEYWORD2
+checkNewSMS	KEYWORD2
 dellAllSMS	KEYWORD2
 
 

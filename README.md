@@ -65,6 +65,9 @@ getTime()|String|Gets time of the network in GMT+0
 getLocation()|String|Gets approximate location of device
 getLocation()|String|Gets approximate location of device
 readSIMNumber()|String|Gets sim number stored on sim. Returns empty if sim number not found.
+checkNewSMS()|true or false|Checks if a SMS has arrived. Needs to be call for sms index update
+previousMessageIndex()|Int|Variable for holding the last stored sms index
+currentMessageIndex()|Int|Variable for holding the latest sms index
 getBattPercent()|Byte|Battery percentage 
 gorsConnect()|true or false|Connects to APN network
 gprsDisconnect()|true or false|Disconnects from Gprs network
