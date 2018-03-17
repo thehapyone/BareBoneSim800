@@ -362,6 +362,21 @@ String BareBoneSim800::readSMS(uint8_t index){
 		return "";
 }
 
+String BareBoneSim800::readSIMNumber(){
+	// This function reads the simcard registered number
+	String buffer = "";
+	gsmSerial.print(F("AT+CNUM"));
+	gsmSerial.print("\r");
+	buffer = _readData(); //reads the result
+	if(buffer.indexOf("+CNUM:") != -1)
+	{
+		// means message is found
+		return buffer;
+	}
+	else
+		return "";
+}
+
 bool BareBoneSim800::dellAllSMS(){
 	/* This deletes all sms in memory  
 	
@@ -555,11 +570,11 @@ String BareBoneSim800::sendHTTPData(char *data)
 		return "";
 	delay(5);
 	gsmSerial.print(F("AT+HTTPACTION=0\r\n"));
-	result= _checkResponse(10000);
+	result= _checkResponse(100000); // updated to about 100secs for very slow networks
 	if(result != OK)
 		return "";
 	delay(10);
-	result = _checkResponse(10000);
+	result = _checkResponse(50000);
 	gsmSerial.print(F("AT+HTTPREAD\r\n"));
 	String buffer = _readData();
 	delay(50);

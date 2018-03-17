@@ -44,3 +44,4 @@ getTime	KEYWORD2
 getLocation	KEYWORD2
 getBattPercent	KEYWORD2
 flushSerial	KEYWORD2
+readSIMNumber	KEYWORD2

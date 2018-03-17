@@ -63,6 +63,8 @@ readSms(index)|String|index is the position of the sms in the prefered memory st
 dellAllSMS()|true or false|Deletes all message in the SIM800 module.
 getTime()|String|Gets time of the network in GMT+0
 getLocation()|String|Gets approximate location of device
+getLocation()|String|Gets approximate location of device
+readSIMNumber()|String|Gets sim number stored on sim. Returns empty if sim number not found.
 getBattPercent()|Byte|Battery percentage 
 gorsConnect()|true or false|Connects to APN network
 gprsDisconnect()|true or false|Disconnects from Gprs network
