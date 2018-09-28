@@ -30,7 +30,7 @@
  *        Created on: Oct 24, 2017
  *        Author: Ayo Ayibiowu
  *        Email: charlesayibiowu@hotmail.com
- *        Version: v1.1
+ *        Version: v1.2
  *        
  *
 */
@@ -127,40 +127,6 @@ AltSoftSerial gsmSerial;
 		 return output;
 	 }
  }
- /*
-  String BareBoneSim800::_readData(uint16_t timeout){
-	 // this function just reads the raw data
-	 uint16_t t=0;
-	 while (!gsmSerial.available() && t<timeout)
-	 {
-		 delay(10);
-		 timeout++;
-	 }
-	 if(gsmSerial.available())
-	 {
-		 String output = gsmSerial.readString();
-		 if(DEBUG)
-			 Serial.println(output);
-		 return output;
-	 }
- }
- */
- /*
- void BareBoneSim800::_flushSerial(uint16_t timeout){ 
-	unsigned long t = millis();	 
-	 // loop through until their is a timeout or a response from the device
-	 String output;
-	 while(millis()<t+timeout)
-	 {
-	  if(gsmSerial.available())
-	 {
-		 output = gsmSerial.readString();
-		 output= "";
-		 break;
-	 }
-	 }
- }
- */
  
  int BareBoneSim800::_getLatestMessageIndex()
 {
@@ -548,53 +514,6 @@ bool BareBoneSim800::gprsConnect(){
 	return true;	
 	
 }
-/*
-bool BareBoneSim800::serverConnect(const char *host, const uint16_t port){
-	// this function connects to the host/serverConnect
-	delay(10);
-	//byte result = _checkResponse(2000);
-	gsmSerial.print(F("AT+CIPSTART=\"TCP\",\""));
-	gsmSerial.print(host);
-	gsmSerial.print("\",");
-	gsmSerial.print(port);
-	gsmSerial.print("\r\n");
-	byte result = _checkResponse(10000);
-	delay(10);
-	result = _checkResponse(75000);
-	if(result == CONNECT_OK || result == ALREADY_CONNECT)
-		return true;
-	else 
-		return false;
-}
-*/
-
-/*
-String BareBoneSim800::sendTCPData(char *data)
-{
-	// This function sends the TCP data 
-	byte result;
-	int len = strlen(data); // get the length
-	gsmSerial.print(F("AT+CIPSEND=")); // 
-	gsmSerial.print(len);
-	gsmSerial.print(F("\r"));
-	result=_checkResponse(5000); // to clear buffer and see if successful
-	if(result != READY_TO_RECEIVE){
-		return "";
-	}
-	Serial.println("Now Ready to Receive");
-	gsmSerial.print(data);
-	gsmSerial.print(F("\r\n"));
-	//result=_checkResponse(1000);
-	gsmSerial.print((char)26);
-	result = _checkResponse(20000);
-	delay(10);
-	String buffer = _readData();
-	if(buffer.indexOf("SEND OK") != -1) // means it was successfull sent and data is available to be read
-		return buffer.substring(buffer.indexOf("SEND OK")+1);
-	delay(50);	
-	return "";
-	}
-	*/
 	
 String BareBoneSim800::sendHTTPData(char *data)
 {
