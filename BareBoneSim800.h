@@ -4,7 +4,7 @@
  *    It currently supports GSM(sending and reading SMS), 
  *    GPRS connectivity(sending and receiving TCP) with Time and Location
  *     
- *    This library is writing by  Ayo Ayibiowu.
+ *    This library is written by  Ayo Ayibiowu.
  *    charlesayibiowu@hotmail.com
  *    Designed to work with the GSM Sim800l module,
  *    and possibily other SIMxxx modules(not tested with others)
