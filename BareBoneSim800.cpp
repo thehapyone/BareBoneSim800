@@ -273,10 +273,11 @@ void BareBoneSim800::_disableBearerProfile(){
 	 if (result != NOT_READY)
 		 return false;
 	 
-	 delay(50); // just chill small	
+	 delay(10); // just chill small	
 	 // The GSM will send an OK response again
-	 result = _checkResponse(20000);
-	 if (result != OK)
+	 // or maybe a timeout occured.
+	 result = _checkResponse(40000);
+	 if ((result != OK) || (result != 99))
 		 return false;
 	 delay(50);
 	 gsmSerial.print(F("AT+CSCLK=2\r\n")); // enable automatic sleep
